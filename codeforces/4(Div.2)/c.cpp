@@ -1,6 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<map>
 using namespace std;
-using ll = long long;
 
 int main(void){
   int n; cin >> n;
