@@ -1,3 +1,3 @@
-atcoder：AtCoderでACしたコードをコンテストの種別(ABC/ARC/AGC/AWC)ごとに、また、コンテスト名ごとに載せる
+atcoder：AtCoderでACしたコードをコンテストの種別(ABC/ARC/AGC/AWC)ごとに、また、コンテストごとに載せる
 
-codeforces：CodeforcesでACしたコードをコンテスト名ごとに載せる。
+codeforces：CodeforcesでACしたコードをコンテストNo.ごとに載せる。
