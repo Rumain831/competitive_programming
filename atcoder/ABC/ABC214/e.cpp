@@ -5,6 +5,8 @@
 using namespace std;
 using P = pair<int, int>;
 
+//Tags: Simulation, 貪欲法, 区間
+
 void solve(){
   int n; cin >> n;
   vector<P> seg;

@@ -5,6 +5,8 @@
 using namespace std;
 using P = pair<int, int>;
 
+//Tags: 数え上げ
+
 int main(void){
   int n; cin >> n;
   vector<P> point;

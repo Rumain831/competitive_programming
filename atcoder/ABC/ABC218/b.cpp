@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 文字列
+
 int main(void){
   string s;
   for(int i=0; i<26; i++){

@@ -2,6 +2,8 @@
 #include<set>
 using namespace std;
 
+//Tags: Simulation
+
 int main(void){
   int l, q; cin >> l >> q;
   set<int> cut={0, l};

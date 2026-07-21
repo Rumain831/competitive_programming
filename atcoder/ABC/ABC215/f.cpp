@@ -5,6 +5,8 @@ using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 
+//Tags: 二分探索
+
 int main(void){
   int n; cin >> n;
   vector<P> p;

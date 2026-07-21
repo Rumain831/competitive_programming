@@ -5,6 +5,8 @@ using namespace std;
 using ll = long long;
 using P = pair<ll, int>;
 
+//Tags: Simulation, ダイクストラ法
+
 int main(void){
   int n; cin >> n;
   vector<ll> s(n), t(n);

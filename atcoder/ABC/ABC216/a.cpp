@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 条件分岐
+
 int main(void){
   string s; cin >> s;
   int now=s.back()-'0'; s.pop_back(), s.pop_back();

@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 全探索
+
 int main(void){
   int s, t; cin >> s >> t;
   int ans=0;

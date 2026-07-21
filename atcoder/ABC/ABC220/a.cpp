@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 全探索
+
 int main(void){
   int a, b, c; cin >> a >> b >> c;
   for(int i=a; i<=b; i++){

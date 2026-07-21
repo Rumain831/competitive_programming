@@ -6,6 +6,8 @@ using namespace std;
 using ll = long long;
 using tu = tuple<ll, int, int>;
 
+//Tags: 最小全域木
+
 struct UnionFind{
   vector<int> par, siz, rank;
   UnionFind(int n) : par(n, -1), siz(n, 1), rank(n, 1) {}  //コンストラクタ

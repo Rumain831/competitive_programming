@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+//Tags: 全探索
+
 int main(void){
   int n; cin >> n;
   vector<pair<string, string>> name(n);

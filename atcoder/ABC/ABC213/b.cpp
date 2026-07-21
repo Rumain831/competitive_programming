@@ -3,6 +3,8 @@
 #include<algorithm>
 using namespace std;
 
+//Tags: ソート
+
 int main(void){
   int n; cin >> n;
   vector<pair<int, int>> a(n);

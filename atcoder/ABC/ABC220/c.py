@@ -1,3 +1,5 @@
+#Tags: 数列
+
 n = int(input())
 a = list(map(int, input().split()))
 x = int(input())

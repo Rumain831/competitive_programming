@@ -1,3 +1,5 @@
+#Tags: 条件分岐
+
 n = int(input())
 
 if n<=125: print(4)

@@ -4,6 +4,8 @@
 using namespace std;
 using ll = long long;
 
+//Tags: 二分探索
+
 int main(void){
   int n, m; cin >> n >> m;
   vector<ll> a(n+2), b(m+2);

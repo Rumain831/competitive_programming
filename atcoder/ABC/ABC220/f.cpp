@@ -4,6 +4,8 @@
 using namespace std;
 using ll = long long;
 
+//Tags: 全方位木dp
+
 template<
   class vinfo=ll,
   class einfo=ll

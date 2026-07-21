@@ -2,6 +2,9 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
+
+//Tags: dp
+
 void chmin(int& a, int b){a=min(a, b);}
 
 int main(){

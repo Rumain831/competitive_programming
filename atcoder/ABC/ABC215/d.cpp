@@ -5,6 +5,8 @@
 using namespace std;
 using ll = long long;
 
+//Tags: 整数, gcd, 約数
+
 int main(void){
   int n, m; cin >> n >> m;
   int nn=1e5+1;

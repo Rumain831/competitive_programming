@@ -5,6 +5,8 @@ using namespace std;
 using ll = long long;
 using P = pair<ll, ll>;
 
+//Tags: dp
+
 int main(void){
   int n; cin >> n;
   vector<P> num(n);

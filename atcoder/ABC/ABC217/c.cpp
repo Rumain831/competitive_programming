@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+//Tags: Simulation, 順列
+
 int main(void){
   int n; cin >> n;
   vector<int> ans(n);

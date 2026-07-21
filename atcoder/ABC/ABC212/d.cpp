@@ -3,6 +3,8 @@
 using namespace std;
 using ll = long long;
 
+//Tags: Simulation, 累積和
+
 int main(void){
   int q; cin >> q;
   ll plus=0;

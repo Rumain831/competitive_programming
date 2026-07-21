@@ -3,6 +3,8 @@
 #include<algorithm>
 using namespace std;
 
+//Tags: 順列全探索
+
 int main(void){
   string s; int k; cin >> s >> k;
   sort(s.begin(), s.end());

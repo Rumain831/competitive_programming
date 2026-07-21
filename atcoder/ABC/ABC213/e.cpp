@@ -6,6 +6,8 @@
 using namespace std;
 using tu = tuple<int, int, int>;
 
+//Tags: 01BFS
+
 int main(void){
   int h, w; cin >> h >> w;
   vector<string> s(h);

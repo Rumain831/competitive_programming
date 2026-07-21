@@ -3,6 +3,8 @@
 #include<queue>
 using namespace std;
 
+//Tags: Simulation
+
 int main(void){
   int n, m; cin >> n >> m;
   vector<queue<int>> tube(m);

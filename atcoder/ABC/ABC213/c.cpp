@@ -4,6 +4,8 @@
 #include<algorithm>
 using namespace std;
 
+//Tags: 座標圧縮
+
 pair<vector<int>, map<int, int>> cc(vector<int>& a){ //座標圧縮
   vector<int> p=a;
   sort(p.begin(), p.end());

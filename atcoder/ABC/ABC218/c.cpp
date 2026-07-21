@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+//Tags: 全探索, grid
+
 int main(void){
   int n; cin >> n;
   vector<string> s(n), t(n);

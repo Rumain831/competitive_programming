@@ -2,6 +2,8 @@
 #include<set>
 using namespace std;
 
+//Tags: 条件分岐
+
 int main(void){
   string x; cin >> x;
   string t="0123456789";

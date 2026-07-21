@@ -2,6 +2,8 @@
 #include<queue>
 using namespace std;
 
+//Tags: Simulation
+
 int main(void){
   int q; cin >> q;
   priority_queue<int, vector<int>, greater<int>> pri;

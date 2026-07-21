@@ -1,3 +1,5 @@
+#Tags: 全探索
+
 n = int(input())
 two, ans = 1, 0
 

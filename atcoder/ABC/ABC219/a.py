@@ -1,3 +1,5 @@
+#Tags: 条件分岐
+
 x = int(input())
 
 if x>=90: print("expert")

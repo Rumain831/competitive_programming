@@ -4,6 +4,8 @@
 using namespace std;
 using ll = long long;
 
+//Tags: Simulation
+
 ll f(ll st, ll la){
   if(st>la) return 0ll;
   ll num=la-st+1;

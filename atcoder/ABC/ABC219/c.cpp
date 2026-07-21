@@ -4,6 +4,8 @@
 using namespace std;
 using P = pair<string, string>;
 
+//Tags: 文字列, 辞書順
+
 int main(void){
   string x; int n; cin >> x >> n;
   vector<P> s(n);
