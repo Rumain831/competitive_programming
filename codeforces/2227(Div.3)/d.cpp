@@ -2,7 +2,9 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-using ll = long long;
+
+//Tags: 回文
+//https://codeforces.com/contest/2227/problem/D
 
 //1つ目の0と2つ目の0をともに含む回文, 1つ目の0を中心に広がる回文, 2つ目の0を中心に広がる回文 を見る
 void solve(){

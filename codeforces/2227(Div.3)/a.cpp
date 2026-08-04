@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 条件分岐
+//https://codeforces.com/contest/2227/problem/A
+
 //両者とも奇数なら不可能、そうでないなら可能
 void solve(){
   int x, y; cin >> x >> y;

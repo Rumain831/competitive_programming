@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 考察で瞬殺
+//https://codeforces.com/contest/2200/problem/B
 //既に広義単調増加なら答えはn。
 //そうでないならi<jだがai>ajなる(i, j)がある。
 //上手く操作すればaiだけ残せる。

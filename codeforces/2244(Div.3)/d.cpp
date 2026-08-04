@@ -5,6 +5,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 貪欲法
+//https://codeforces.com/contest/2244/problem/D
 //aを添字 [1, b_1], [b_1+1, b_2], ..., [b_(m-1)+1, b_m], [b_m+1, n] で分割する
 //[b_m+1, n]は値を変えようがないのでそのまま
 //その他の部分は abs(総和) を足せる

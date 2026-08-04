@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 条件を満たすものの個数
+//https://codeforces.com/contest/2200/problem/A
 
 void solve(){
   int n; cin >> n;

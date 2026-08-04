@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: UnionFind, ソート
+//https://codeforces.com/contest/2244/problem/C
 
 struct UnionFind{
   vector<int> par, siz, rank;

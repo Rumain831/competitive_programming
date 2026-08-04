@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 区間反転
+//https://codeforces.com/contest/2244/problem/E
 //区間に対する操作は差分列を見るのは定石
 //隣り合う文字が異なれば1, 同じなら0とする列を作る
 //1回のflipで差分列における0を高々2回、1にできる

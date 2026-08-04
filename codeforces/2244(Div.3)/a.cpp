@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: ランレングス圧縮
+//https://codeforces.com/contest/2244/problem/A
 
 void solve(){
   int n; cin >> n;

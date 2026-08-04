@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 単調増加
+//https://codeforces.com/contest/2244/problem/B
 
 void solve(){
   int n; cin >> n;

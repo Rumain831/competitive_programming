@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 文字列, 括弧列
+//https://codeforces.com/contest/2200/problem/C
 
 void solve(){
   int n; cin >> n;

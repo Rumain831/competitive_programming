@@ -1,6 +1,8 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
-using ll = long long;
+
+//Tags: 文字列
+//https://codeforces.com/contest/71/problem/A
 
 int main(void){
   int n; cin >> n;

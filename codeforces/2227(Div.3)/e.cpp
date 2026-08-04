@@ -4,6 +4,9 @@
 using namespace std;
 using ll = long long;
 
+//Tags: Simulation
+//https://codeforces.com/contest/2227/problem/E
+
 template<class Tr=ll>
 struct segtree{
   int N;

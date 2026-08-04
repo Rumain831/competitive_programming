@@ -2,6 +2,9 @@
 #include<map>
 using namespace std;
 
+//Tags: 文字列, map
+//https://codeforces.com/contest/4/problem/C
+
 int main(void){
   int n; cin >> n;
   map<string, int> cnt;
