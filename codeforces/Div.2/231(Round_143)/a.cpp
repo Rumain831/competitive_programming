@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//Tags: 条件を満たすものの個数
+//https://codeforces.com/problemset/problem/231/A
+
 int main(void){
   int n; cin >> n;
   int ans=0;
