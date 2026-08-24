@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: Nim, 素因数分解
+//Level: 3
 
 int main(void){
   int n; cin >> n;

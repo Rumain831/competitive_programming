@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 漸化式
+//Level: 3
 //三項間漸化式を解けば an=4*(3/4)^n が得られる。
 
 int main(void){

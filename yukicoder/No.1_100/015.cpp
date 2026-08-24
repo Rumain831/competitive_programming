@@ -7,6 +7,7 @@ using ll = long long;
 using P = pair<ll, int>;
 
 //Tags: 半分全列挙
+//Level: 4
 
 map<ll, vector<vector<int>>> Enum(vector<P>& a){
   int n=a.size();

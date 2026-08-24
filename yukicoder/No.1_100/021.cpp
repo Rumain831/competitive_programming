@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 最適化
+//Level: 1
 
 int main(void){
   int n, k; cin >> n >> k;

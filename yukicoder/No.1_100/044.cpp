@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: dp
+//Level: 1.5
 
 int main(void){
   int n; cin >> n;

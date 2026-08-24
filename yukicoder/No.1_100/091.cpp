@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 二分探索
+//Level: 2
 
 int main(void){
   int a[3]; cin >> a[0] >> a[1] >> a[2];

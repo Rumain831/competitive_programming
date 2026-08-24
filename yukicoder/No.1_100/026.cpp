@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: Simulation
+//Level: 1
 
 int main(void){
   int n, m; cin >> n >> m; n--;

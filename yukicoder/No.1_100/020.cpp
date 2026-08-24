@@ -5,6 +5,7 @@ using namespace std;
 using qu = tuple<int, int, int, int>;
 
 //Tags: ダイクストラ法
+//Level: 3
 
 int main(void){
   int n, v, ox, oy; cin >> n >> v >> ox >> oy; ox--, oy--;

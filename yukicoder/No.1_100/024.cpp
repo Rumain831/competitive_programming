@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 全探索
+//Level: 1
 
 int main(void){
   int n; cin >> n;

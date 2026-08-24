@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 全探索
+//Level: 2
 
 int n, k;
 int cnt[2][61];

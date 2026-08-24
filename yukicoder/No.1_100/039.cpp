@@ -4,6 +4,7 @@ using namespace std;
 using P = pair<int, int>;
 
 //Tags: 辞書順
+//Level: 1.5
 
 int main(void){
   string s; cin >> s;

@@ -1,4 +1,5 @@
 #Tags: 小数の扱い
+#Level: 2.5
 #AIに聞いたら教えてくれた解答。知らんかった。
 
 from decimal import Decimal

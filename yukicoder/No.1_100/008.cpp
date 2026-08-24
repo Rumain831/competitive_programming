@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: ゲーム, Grundy数
+//Level: 2
 //g(x)をxが渡ったときのGrundy数とする。
 //g(N)=0, g(N-1)=1, ..., g(N-K)=K
 //g(N-K-1)=0, ... と周期的になることが分かる

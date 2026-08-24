@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 幾何
+//Level: 1.5
 
 int main(void){
   ll x, y; cin >> x >> y;

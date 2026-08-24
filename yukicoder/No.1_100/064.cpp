@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: XOR, 周期性
+//Level: 1.5
 
 // 0000
 // 0110110

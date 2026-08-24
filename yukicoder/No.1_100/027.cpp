@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 全探索, dp
+//Level: 3
 
 int main(void){
   int v[4];

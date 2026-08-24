@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 括弧列
+//Level: 1.5
 
 int main(void){
   int n, k; cin >> n >> k;

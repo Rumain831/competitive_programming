@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: dp
+//Level: 3
 
 int main(void){
   int t, n; cin >> t >> n;

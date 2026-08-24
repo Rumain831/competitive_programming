@@ -1,4 +1,5 @@
 #Tags: 時間
+#Level: 1
 
 n = int(input())
 ans = 0

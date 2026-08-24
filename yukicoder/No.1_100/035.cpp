@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 四則演算
+//Level: 1
 
 int main(void){
   int n; cin >> n;

@@ -1,4 +1,5 @@
 #Tags: 実装, 小数の扱い
+#Level: 2.5
 
 n = int(input())
 ans = 0

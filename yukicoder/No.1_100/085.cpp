@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: コーナーケース, grid, パリティ
+//Level: 2
 
 int main(void){
   int n, m, c; cin >> n >> m >> c;

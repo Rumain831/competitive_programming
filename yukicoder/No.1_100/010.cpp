@@ -4,6 +4,7 @@ using namespace std;
 void chmax(string& a, string b){a=max(a, b);}
 
 //Tags: dp
+//Level: 4
 //文字としては '+' > '*' だったのでmaxで処理している
 //dp[i][x]=i番目までの数を使ってxを作る文字列の辞書順最大(上の意味で)のもの
 int main(void){

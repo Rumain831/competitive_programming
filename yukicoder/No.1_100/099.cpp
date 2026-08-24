@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: パリティ
+//Level: 1.5
 
 int main(void){
   int n; cin >> n;

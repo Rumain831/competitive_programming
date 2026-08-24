@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 実装
+//Level: 1.5
 
 int main(void){
   string s; cin >> s;

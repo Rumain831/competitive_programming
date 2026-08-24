@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: 貪欲法
+//Level: 1
 
 int main(void){
   int l, n; cin >> l >> n;

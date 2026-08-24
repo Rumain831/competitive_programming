@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: Simulation
+//Level: 3
 
 template<class Tr=int>
 struct BIT{

@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 文字列
+//Level: 1
 
 int main(void){
   string a, b; cin >> a >> b;

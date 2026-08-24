@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 累積和
+//Level: 3
 
 int main(void){
   int n, k; cin >> n >> k;

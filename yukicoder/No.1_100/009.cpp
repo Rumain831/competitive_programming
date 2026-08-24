@@ -5,6 +5,7 @@ using namespace std;
 using P = pair<int, int>;
 
 //Tags: Simulation
+//Level: 3
 
 int main(void){
   int n; cin >> n;

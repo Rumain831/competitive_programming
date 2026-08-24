@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: BFS, bit演算
+//Level: 2
 
 int main(void){
   int n; cin >> n;

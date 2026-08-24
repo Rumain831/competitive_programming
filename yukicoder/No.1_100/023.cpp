@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 期待値dp
+//Level: 3
 
 int main(void){
   int h, a, d; cin >> h >> a >> d;

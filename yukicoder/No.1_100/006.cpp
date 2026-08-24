@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 尺取り法, 素数
+//Level: 3
 
 int digit(int i){
   if(i<10) return i;

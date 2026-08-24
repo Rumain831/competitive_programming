@@ -1,4 +1,5 @@
 #Tags: 二分探索
+#Level: 3
 #答えを x/1e12 としてxを二分探索している
 
 n = int(input())

@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 閉路, DFS, BFS
+//Level: 3
 
 int main(void){
   int w, h; cin >> w >> h;

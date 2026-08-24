@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 数え上げ, 文字列
+//Level: 2
 
 int main(void){
   ll cnt[26];

@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 整数, 素数
+//Level: 2
 //答えがNOになるのは、n=1 or nが素数 or n=pq(p, qは相異なる素数) のとき
 int main(void){
   ll n; cin >> n;

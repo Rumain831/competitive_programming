@@ -5,6 +5,7 @@ using namespace std;
 using P = pair<int, int>;
 
 //Tags: bit全探索, Simulation
+//Level: 2
 
 int n;
 

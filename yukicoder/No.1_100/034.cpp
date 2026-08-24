@@ -5,6 +5,7 @@ using namespace std;
 using qu = tuple<int, int, int, int>;
 
 //Tags: BFS
+//Level: 3
 
 int main(void){
   int n, v, sx, sy, gx, gy; 

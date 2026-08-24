@@ -6,6 +6,7 @@ using namespace std;
 using tu = tuple<int, int, int>;
 
 //Tags: dp, DAG
+//Level: 3
 //dp[i][x]=町iにコストxを払って辿り着くのにかかる最短時間
 
 int main(void){

@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: dp, ゲーム
+//Level: 2
 
 int main(void){
   int n; cin >> n;

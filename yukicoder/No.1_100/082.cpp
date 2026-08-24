@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: grid
+//Level: 1
 
 int main(void){
   int w, h; char c[2]; cin >> w >> h >> c[0];

@@ -6,6 +6,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 等差数列, 余りで分類
+//Level: 3
 
 int main(void){
   ll n, d, t; cin >> n >> d >> t;

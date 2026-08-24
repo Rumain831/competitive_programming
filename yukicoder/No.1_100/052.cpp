@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: bit全探索
+//Level: 1.5
 
 int main(void){
   string s; cin >> s;

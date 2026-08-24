@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 考察
+//Level: 2
 //正方形の場合は90, 180, 270度回転できる
 //空白を置く意味があるのは1の部分だけ
 // 11122              1122

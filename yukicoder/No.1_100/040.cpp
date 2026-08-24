@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: 多項式
+//Level: 2
 
 int main(void){
   int d; cin >> d;

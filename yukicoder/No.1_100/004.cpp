@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: dp
+//Level: 2.5
 
 int main(void){
   int n; cin >> n;

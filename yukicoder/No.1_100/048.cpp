@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 場合分け
+//Level: 1
 
 int main(void){
   int x, y, l; cin >> x >> y >> l;

@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: n進数
+//Level: 1.5
 //2^d<=n を満たすギリギリまで叩いだ後、(n>2^dなら)n-2^d枚をポケットに入れて叩く。
 
 int main(void){

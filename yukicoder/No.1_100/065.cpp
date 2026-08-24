@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: dp, 期待値
+//Level: 2
 
 double dp[21];
 int main(void){

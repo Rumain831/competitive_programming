@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 幾何
+//Level: 1.5
 //縦+横=floor(d/2) 
 
 int main(void){

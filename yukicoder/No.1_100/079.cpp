@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 最頻値
+//Level: 1.5
 
 int cnt[7];
 int main(void){

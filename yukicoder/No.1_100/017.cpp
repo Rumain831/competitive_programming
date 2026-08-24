@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: ワーシャルフロイド法
+//Level: 3
 
 int main(void){
   int n; cin >> n;

@@ -7,6 +7,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: SCC
+//Level: 4
 
 struct SCC{
   int n;

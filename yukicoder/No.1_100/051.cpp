@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: Simulation
+//Level: 1.5
 
 int main(void){
   ll w, d; cin >> w >> d;

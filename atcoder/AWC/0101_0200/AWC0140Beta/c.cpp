@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-//Tags: DP
+//Tags: dp
 
 int main(void){
   ll n, k; cin >> n >> k;

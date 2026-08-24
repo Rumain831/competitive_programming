@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 貪欲法, 硬貨交換
+//Level: 1
 
 int main(void){
   int p[3]={100, 25, 1};

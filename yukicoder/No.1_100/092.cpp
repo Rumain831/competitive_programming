@@ -5,6 +5,7 @@ using namespace std;
 using P = pair<int, int>;
 
 //Tags: dp, グラフ
+//Level: 2
 
 int main(void){
   int n, m, k; cin >> n >> m >> k;

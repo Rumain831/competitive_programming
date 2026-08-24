@@ -1,4 +1,5 @@
 #Tags: 数え上げ, AM-GM
+#Level: 2
 
 n = int(input())
 a = n//2

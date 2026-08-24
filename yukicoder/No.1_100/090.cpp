@@ -5,6 +5,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 順列全探索
+//Level: 2
 
 int main(void){
   int n, m; cin >> n >> m;
