@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: dp, 期待値
+//Level: 3
 
 double dp[101][101][101];
 bool seen[101][101][101];

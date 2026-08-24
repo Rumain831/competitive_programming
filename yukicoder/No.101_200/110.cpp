@@ -4,6 +4,7 @@
 using namespace std;
 
 //Tags: 貪欲法
+//Level: 2
 
 int f(vector<int> a, vector<int> b){
   int na=a.size(), nb=b.size();

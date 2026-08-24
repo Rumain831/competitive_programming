@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 整数
+//Level: 2
 //自然数x, y, z(x<y<z)に対し、x:y:z=1:2:3 が(x, y, z)が美しい組であることの必要十分条件 
 // x+y<z+z=2z より x+y=z でないといけない
 // x+z=2x+yがyの倍数より2xもyの倍数。2x<2yだから2x=y　でないといけない

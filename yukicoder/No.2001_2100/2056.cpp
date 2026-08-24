@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: Simulation
+//Level: 2
 
 int main(void){
   ll n, x, m; cin >> n >> x >> m;

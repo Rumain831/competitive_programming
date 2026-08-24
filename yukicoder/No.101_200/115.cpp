@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: dp, 復元, 辞書順
+//Level: 2
 
 bool dp[101][1001][11];
 int main(void){

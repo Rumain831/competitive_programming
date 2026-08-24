@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 数え上げ
+//Level: 2
 
 int main(void){
   int n; cin >> n;

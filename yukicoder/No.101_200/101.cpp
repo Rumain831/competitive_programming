@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 置換, 最小公倍数
+//Level: 3
 
 ll gcd(ll a, ll b){
   if(b==0) return a;

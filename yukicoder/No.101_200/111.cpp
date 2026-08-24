@@ -3,6 +3,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: 数え上げ, 回文
+//Level: 1.5
 //奇数番目の異なる位置2つ, 偶数番目の異なる位置2つの選び方の和が答え
 
 int main(void){

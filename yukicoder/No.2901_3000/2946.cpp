@@ -4,6 +4,7 @@ using namespace std;
 using P = pair<int, int>;
 
 //Tags: DFS
+//Level: 1.5
 
 int main(void){
   int h, w; cin >> h >> w;

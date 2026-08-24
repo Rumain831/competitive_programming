@@ -6,6 +6,7 @@ using ll = long long;
 using P = pair<ll, int>;
 
 //Tags: イベントソート, 区間
+//Level: 2.5
 
 int main(void){
   ll n, k; cin >> n >> k;

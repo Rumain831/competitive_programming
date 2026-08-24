@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: ゲーム, dp
+//Level: 3
 
 int dp[14][14][14][14][53];
 int seen[14][14][14][14][53];

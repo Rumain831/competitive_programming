@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: Simulation
+//Level: 1
 
 int main(void){
   string s; cin >> s;

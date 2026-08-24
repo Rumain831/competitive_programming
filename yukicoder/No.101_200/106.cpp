@@ -2,6 +2,7 @@
 using namespace std;
 
 //Tags: 素因数分解
+//Level: 2
 
 int cnt[2000001];
 int main(void){

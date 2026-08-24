@@ -5,6 +5,7 @@ using ll = long long;
 using P = pair<ll, int>;
 
 //Tags: 貪欲法
+//Level: 1.5
 
 int main(void){
   P p[4];

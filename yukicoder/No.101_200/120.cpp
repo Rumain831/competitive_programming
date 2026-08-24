@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: Hall条件
+//Level: 2
 
 void solve(){
   int n; cin >> n;

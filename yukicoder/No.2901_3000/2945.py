@@ -1,4 +1,5 @@
 #Tags: 条件分岐
+#Level: 1
 
 n = int(input())
 

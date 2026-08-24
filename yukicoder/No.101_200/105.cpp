@@ -3,6 +3,7 @@
 using namespace std;
 
 //Tags: 幾何, 小数の扱い
+//Level: 2.5
 
 void solve(){
   long double ans;

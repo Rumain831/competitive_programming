@@ -1,4 +1,5 @@
 #Tags: 条件を満たすものの個数
+#Level: 1
 
 n = int(input())
 a = list(map(int, input().split()))

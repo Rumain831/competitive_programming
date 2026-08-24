@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 //Tags: Eulerのphi関数, 完全グラフ
+//Level: 3
 
 vector<ll> EulerPhi(int n){
   vector<ll> ans(n+1);
