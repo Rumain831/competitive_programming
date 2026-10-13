@@ -1,0 +1,4 @@
+#Tags: 条件分岐
+
+a, b, c = map(int, input().split())
+print("Yes" if abs(a-b)<=c else "No")
