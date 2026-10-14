@@ -23,7 +23,25 @@
 	// }
 
 	"Competitive Programming Template": {
-		"prefix": "template",
+		"prefix": "template_atc",
+		"body": [
+		"//https://github.com/Rumain831/competitive_programming/tree/main/Library",
+		"#include<iostream>",
+		"#include<vector>",
+		"#include<algorithm>",
+		"using namespace std;",
+		"using ll = long long;",
+		"",
+		"int main(void){",
+		"  $0",
+		"  return 0; ",
+		"}"
+		],
+		"description": "Competitive programming template"
+	},
+
+	"Competitive Programming Template Simple": {
+		"prefix": "template_base",
 		"body": [
 		"#include<iostream>",
 		"#include<vector>",
