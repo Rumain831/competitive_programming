@@ -62,6 +62,25 @@ double randdouble() {
   return dist(rng);
 }
 
+vector<vector<int>> Tree(int n){ //n>=2
+  vector<vector<int>> to(n);
+  vector<int> p(n-2), deg(n, 1);
+  for(auto&x:p) x=randint(0, n-1), deg[x]++;
+  priority_queue<int, vector<int>, greater<int>> pri;
+  for(int i=0; i<n; i++)if(deg[i]==1) pri.push(i);
+  for(auto x:p){
+    int u=pri.top(); pri.pop();
+    deg[x]--, deg[u]--;
+    to[x].push_back(u);
+    to[u].push_back(x);
+    if(deg[x]==1) pri.push(x);
+  }
+  int u=pri.top(); pri.pop();
+  int v=pri.top(); pri.pop();
+  to[u].push_back(v), to[v].push_back(u);
+  return to;
+}
+
 int main() {
   // 使用例
   int x = randint(1, 10);    // 1〜10
