@@ -1,25 +1,26 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 using ll = long long;
+using i128 = __int128_t;
 
-//Tags: 数学, 四則演算
-//Level: 1.5
+//Tags: 数学, 四則演算, 多倍長整数
 
 struct frac{
-  ll bunsi, bumbo;
-  frac(ll a, ll b=1):bunsi(a), bumbo(b){
+  i128 bunsi, bumbo;
+  frac(i128 a, i128 b=1):bunsi(a), bumbo(b){
     normalize();
   }
 
-  ll gcd(ll a, ll b){
+  i128 gcd(i128 a, i128 b){
     if(b==0) return a;
     else return gcd(b, a%b);
   }
 
   void normalize(){
     if(bumbo<0) bunsi*=-1, bumbo*=-1;
-    ll g=gcd(abs(bunsi), abs(bumbo));
+    i128 g=gcd(max(bunsi, -bunsi), max(bumbo, -bumbo));
     bunsi/=g, bumbo/=g;
   }
   
@@ -91,24 +92,52 @@ struct frac{
     return !(*this<other);
   }
 
-  friend ostream& operator<<(ostream& os, const frac& f){
-    if (f.bumbo == 1) os << f.bunsi;
-    else os << f.bunsi << "/" << f.bumbo;
-    return os;
-  }
 };
 
-ll f(ll p, ll q){
+i128 f(i128 p, i128 q){
   if(p>=0) return p/q;
   else{
-    ll pp=-p;
+    i128 pp=-p;
     return -(pp+q-1)/q;
   }
 }
 
+string to_string_128(i128 x){
+  if(x==0) return "0";
+  bool neg=false;
+  if(x<0) neg=true, x=-x;
+  string ans;
+  while(x>0){
+    int p=x%10;
+    ans.push_back((char)('0'+p));
+    x/=10;
+  }
+  if(neg) ans.push_back('-');
+  reverse(ans.begin(), ans.end());
+  return ans;
+}
+//i128用の入力オーバーロード
+istream& operator>>(istream& is, i128& x){
+  string s; cin >> s;
+  bool neg=false;
+  int i=0;
+  if(s[0]=='-') neg=true, i++;
+  i128 val=0;
+  for(; i<s.size(); i++){
+    int p=s[i]-'0';
+    val=(val)*10+p;
+  }
+  x=(neg?-val:val);
+  return is;
+}
+//i128用の出力オーバーロード
+ostream& operator<<(ostream& os, i128 x){
+  return os << to_string_128(x);
+}
+
 int main(void){
   int n, a, b; cin >> n >> a >> b;
-  vector<ll> k(n+1), pa(n+2, 1), pb(n+2, 1);
+  vector<i128> k(n+1), pa(n+2, 1), pb(n+2, 1);
   for(auto&x:k) cin >> x;
   for(int i=1; i<n+2; i++) pa[i]=pa[i-1]*a, pb[i]=pb[i-1]*b;
   frac ans(0, 1);
@@ -116,7 +145,7 @@ int main(void){
     frac now(k[i]*(pb[i+1]-pa[i+1]), i+1);
     ans+=now;
   }
-  ll p=ans.bunsi, q=ans.bumbo;
+  i128 p=ans.bunsi, q=ans.bumbo;
   cout << f(p, q) << endl;
   return 0; 
 }
