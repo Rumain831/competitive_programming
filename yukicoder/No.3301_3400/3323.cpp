@@ -12,36 +12,37 @@ using namespace std;
 int main(void){
   int n, m; cin >> n >> m;
   vector<string> s(n);
-  vector<int> rem;
-  for(int i=0; i<n; i++){
-    cin >> s[i];
-    rem.push_back(i);
-  }
+  for(auto&x:s) cin >> x;
   string ans(m, 'G');
-  auto f=[&](int a[3]){
-    if(a[0]==0) return 'C';
-    if(a[1]==0) return 'P';
-    if(a[2]==0) return 'G';
-    return '!';
-  };
+  vector<int> wait;
+  for(int i=0; i<n; i++) wait.push_back(i);
   for(int i=0; i<m; i++){
     vector<int> old;
-    swap(old, rem);
-    int cnt[3]={};
+    swap(old, wait);
+    int now=0;
     for(auto p:old){
-      if(s[p][i]=='G') cnt[0]++;
-      else if(s[p][i]=='C') cnt[1]++;
-      else cnt[2]++;
+      int x=(s[p][i]=='G'?0:(s[p][i]=='C'?1:2));
+      now|=(1<<x);
     }
-    char x=f(cnt);
-    if(x=='!'){
+    int k=__builtin_popcount(now);
+    if(k==3){
       cout << -1 << endl; return 0;
     }
-    ans[i]=x;
-    for(auto p:old)if(s[p][i]==x) rem.push_back(p);
-    if(rem.empty()) break;
+    else if(k==1){
+      ans[i]=(now==1?'P':(now==2?'G':'C'));
+      cout << ans << endl; return 0;
+    }
+    else if(k==2){
+      char win=(now==3?'G':(now==5?'P':'C'));
+      char lose=(now==3?'C':(now==5?'G':'P'));
+      ans[i]=win;
+      for(auto p:old){
+        if(s[p][i]==win) wait.push_back(p);
+      }
+    }
+    else break;
   }
-  if(rem.size()) cout << -1 << endl;
-  else cout << ans << endl;
+  if(wait.empty()) cout << ans << endl;
+  else cout << -1 << endl;
   return 0; 
 }
