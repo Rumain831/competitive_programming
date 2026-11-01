@@ -68,7 +68,7 @@
 	"Priority Queue for P": {
 		"prefix": "pqP",
 		"body": [
-			"priority_queue<P, vector<P>, greater<P>>"
+			"priority_queue<${1:P}, vector<${1:P}>, greater<${1:P}>>"
 		],
 		"description": "Priority Queue for P ver."
 	},
