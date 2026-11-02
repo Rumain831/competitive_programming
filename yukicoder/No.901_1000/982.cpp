@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-//Tags: 整数, 不定方程式
+//Tags: 整数, 不定方程式, フロベニウスの硬貨交換問題
+//Level: 2
 
 int gcd(int a, int b){
   if(b==0) return a;
