@@ -22,8 +22,16 @@
 	// 	"description": "Insert test block"
 	// }
 
+	"Python Input for int": {
+		"prefix": "iint",
+		"body": [
+			"int(input())"
+		],
+		"description": "Python input int ver."
+	},
+
 	"Python Input for map": {
-		"prefix": "pymap",
+		"prefix": "mmap",
 		"body": [
 			"map(int, input().split())"
 		],
@@ -31,7 +39,7 @@
 	},
 
 	"Python Input for List": {
-		"prefix": "pylist",
+		"prefix": "llist",
 		"body": [
 			"list(map(int, input().split()))"
 		],
