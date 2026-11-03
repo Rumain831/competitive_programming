@@ -171,13 +171,13 @@ pair<vector<ll>, vector<ll>> factorial(int n, ll mod){
 
 //ax≡b mod m (0, -1):解なし, (0, 1):任意
 pair<ll, ll> crt1(ll a, ll b, ll m){
-  if(m==0) return {0, -1};
+  if(m<=0) return {0, -1};
+  a=(a%m+m)%m;
   b=(b%m+m)%m;
   if(a==0) return (b==0?make_pair(0, 1):make_pair(0, -1));
   ll x, y, g=extgcd(a, m, x, y);
   if(b%g) return {0, -1};
   a/=g, b/=g, m/=g;
-  extgcd(a, m, x, y);
   ll r=b*x%m; r=(r+m)%m;
   return make_pair(r, m);
 }
@@ -265,7 +265,6 @@ int main(void){
   //------------------
 
   //普通の素因数分解
-  int n; cin >> n;
   cout << n << ':';
   int i=2;
   while(i*i<=n){
@@ -277,6 +276,5 @@ int main(void){
   }
   if(n!=1) cout << ' ' << n;
   //-------------
-
   return 0;
 }
