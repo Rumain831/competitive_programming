@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+#include<tuple>
 #include<algorithm>
 using namespace std;
 using ll = long long;
@@ -16,9 +17,12 @@ struct Dinic{
   int n; 
   vector<vector<Edge>> graph;
   vector<int> level, iter;
+  vector<pair<int, Edge>> pos; //元の辺
   Dinic(int n): n(n), graph(n), level(n), iter(n) {} 
   void addEdge(int u, int v, ll cap){
-    graph[u].emplace_back(v, cap, graph[v].size());
+    int x=graph[v].size()+(u==v);
+    pos.emplace_back(u, Edge(v, cap, x));
+    graph[u].emplace_back(v, cap, x);
     graph[v].emplace_back(u, 0, (int)graph[u].size()-1);
   }
   void bfs(int st){
@@ -53,6 +57,7 @@ struct Dinic{
   }
   //O(V^2E) 二部マッチングならO((V+E)sqrt(V))
   ll maxFlow(int st, int to){
+    if(st==to) return 0ll;
     ll flow=0, inf=1e18;
     while(1){
       bfs(st);
@@ -67,6 +72,16 @@ struct Dinic{
     }
     return flow;
   }
+
+  //復元用 (始点, 終点, 流量)
+  vector<tuple<int, int, ll>> reconst(){
+    vector<tuple<int, int, ll>> ans;
+    for(auto&[u, e]:pos){
+      ll f=graph[e.to][e.rev].cap;
+      ans.emplace_back(u, e.to, f);
+    }
+    return ans;
+  };
 };
 
 int main(void){
