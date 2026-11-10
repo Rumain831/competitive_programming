@@ -289,7 +289,6 @@ struct CentroidDecomposition{
   
   void addEdge(int u, int v, ll w=1){
     to[u].emplace_back(v, w);
-    to[v].emplace_back(u, w);
   }
 
   int sub_size(int u, int par){
