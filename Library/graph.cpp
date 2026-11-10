@@ -271,99 +271,163 @@ struct LCA{
 
 };
 
+struct CentroidDecomposition{
+  int n, root;
+  using PP = pair<int, ll>;
+  struct PathInfo{
+    int c;
+    ll d;
+    PathInfo(int c=-1, ll d=0):c(c), d(d){}
+  };
+  vector<vector<PP>> to;
+  vector<vector<PathInfo>> path;
+  vector<int> sz, cd_par, cd_dep;
+  vector<bool> remove;
+  CentroidDecomposition(int n): 
+  n(n), root(-1), to(n), path(n), sz(n),
+  cd_par(n, -1), cd_dep(n), remove(n, false){}
+  
+  void addEdge(int u, int v, ll w=1){
+    to[u].emplace_back(v, w);
+    to[v].emplace_back(u, w);
+  }
+
+  int sub_size(int u, int par){
+    sz[u]=1;
+    for(auto [v, w]:to[u]){
+      if(v==par||remove[v]) continue;
+      sz[u]+=sub_size(v, u);
+    }
+    return sz[u];
+  }
+
+  //remove=trueで区切られた、uを含む連結成分の重心の頂点番号
+  int find_centroid(int u, int par, int total){
+    for(auto [v, w]:to[u]){
+      if(par==v||remove[v]) continue;
+      if(sz[v]>total/2){
+        return find_centroid(v, u, total);
+      }
+    }
+    return u;
+  }
+
+  //c:重心, d:u-c間の距離
+  void collect(int u, int par, int c, ll d){
+    path[u].emplace_back(c, d);
+    for(auto [v, w]:to[u]){
+      if(par==v||remove[v]) continue;
+      collect(v, u, c, d+w);
+    }
+  }
+
+  void build(int u, int par=-1, int d=0){
+    int total=sub_size(u, -1);
+    int c=find_centroid(u, -1, total);
+    collect(c, -1, c, 0);
+    cd_par[c]=par;
+    cd_dep[c]=d;
+    if(par==-1) root=c;
+    remove[c]=true;
+    for(auto [v, nw]:to[c]){
+      if(!remove[v]) build(v, c, d+1);
+    }
+  }
+};
+
 
 
 int main(void){
-    //ダイクストラ法
-    int n, m;
-    cin >> n >> m;
-    vector<vector<pair<int, int> > > road(n);
-    for(int i=0; i<m; i++){
-    //無向グラフでの処理
-    int a, b, c;
-    cin >> a >> b >> c;
-    road[a-1].push_back(make_pair(b-1, c));
-    road[b-1].push_back(make_pair(a-1, c));
-    }
+  //ダイクストラ法
+  int n, m;
+  cin >> n >> m;
+  vector<vector<pair<int, int> > > road(n);
+  for(int i=0; i<m; i++){
+  //無向グラフでの処理
+  int a, b, c;
+  cin >> a >> b >> c;
+  road[a-1].push_back(make_pair(b-1, c));
+  road[b-1].push_back(make_pair(a-1, c));
+  }
+
+  vector<ll> dist(n, 1e12);  //最大値は問題ごとに変えること！
+  priority_queue<pair<ll, int>, vector<pair<ll, int> >, greater<pair<ll, int> > > dij;
+  dij.push(make_pair(0, 0)); dist[0]=0; 
   
-    vector<ll> dist(n, 1e12);  //最大値は問題ごとに変えること！
-    priority_queue<pair<ll, int>, vector<pair<ll, int> >, greater<pair<ll, int> > > dij;
-    dij.push(make_pair(0, 0)); dist[0]=0; 
-    
-    while(!dij.empty()){
-      auto [score, num]=dij.top(); dij.pop();
-      if(dist[num]!=score) continue;
-      for(auto [at, cost]:road[num]){
-        if(dist[at]>score+cost){
-          dist[at]=score+cost;
-          dij.push(make_pair(dist[at], at));
-        }
+  while(!dij.empty()){
+    auto [score, num]=dij.top(); dij.pop();
+    if(dist[num]!=score) continue;
+    for(auto [at, cost]:road[num]){
+      if(dist[at]>score+cost){
+        dist[at]=score+cost;
+        dij.push(make_pair(dist[at], at));
       }
     }
+  }
 
-    for(int i=0; i<1; i++) cout << dist[n-1] << endl;
+  for(int i=0; i<1; i++) cout << dist[n-1] << endl;
 
-    //UnionFindの使い方------------
-    //頂点数と辺の数
-    int N, M;
-    cin >> N >> M;
+  //UnionFindの使い方------------
+  //頂点数と辺の数
+  int N, M;
+  cin >> N >> M;
 
-    //UnionFindを要素数Nで初期化
-    UnionFind uf(N);
+  //UnionFindを要素数Nで初期化
+  UnionFind uf(N);
 
-    //各辺に対する処理
-    for(int i=0; i<M; i++){
-      int a, b;
-      cin >> a >> b;
-      uf.unite(a, b); //aを含むグループとbを含むグループを併合する
+  //各辺に対する処理
+  for(int i=0; i<M; i++){
+    int a, b;
+    cin >> a >> b;
+    uf.unite(a, b); //aを含むグループとbを含むグループを併合する
+  }
+
+  //集計
+  int res=0; //寝付き
+  for(int x=0; x<N; ++x){
+    if(uf.root(x)==x) ++res;
+  }
+  cout << res << endl;
+  //--------------------
+
+  //LCA 最小共通祖先を求める。
+  {
+    int n; cin >> n;
+    vector<vector<int>> to(n), parent(n, vector<int>(18, -1));
+    for(int i=0; i<n-1; i++){
+      int x, y; cin >> x >> y; x--, y--;
+      to[x].push_back(y);
+      to[y].push_back(x);
     }
-
-    //集計
-    int res=0; //寝付き
-    for(int x=0; x<N; ++x){
-      if(uf.root(x)==x) ++res;
-    }
-    cout << res << endl;
-    //--------------------
-
-    //LCA 最小共通祖先を求める。
-    {
-      int n; cin >> n;
-      vector<vector<int>> to(n), parent(n, vector<int>(18, -1));
-      for(int i=0; i<n-1; i++){
-        int x, y; cin >> x >> y; x--, y--;
-        to[x].push_back(y);
-        to[y].push_back(x);
+    vector<int> depth(n);
+    auto dfs=[&](auto dfs, int now, int par=-1, int d=0)->void {
+      depth[now]=d;
+      parent[now][0]=par;
+      for(auto p:to[now]){
+        if(p!=par) dfs(dfs, p, now, d+1);
       }
-      vector<int> depth(n);
-      auto dfs=[&](auto dfs, int now, int par=-1, int d=0)->void {
-        depth[now]=d;
-        parent[now][0]=par;
-        for(auto p:to[now]){
-          if(p!=par) dfs(dfs, p, now, d+1);
-        }
-        return;
-      };
-      dfs(dfs, 0);
-      for(int k=1; k<18; k++){
-        for(int i=0; i<n; i++){
-          if(parent[i][k-1]!=-1) parent[i][k]=parent[parent[i][k-1]][k-1];
-        }
+      return;
+    };
+    dfs(dfs, 0);
+    for(int k=1; k<18; k++){
+      for(int i=0; i<n; i++){
+        if(parent[i][k-1]!=-1) parent[i][k]=parent[parent[i][k-1]][k-1];
       }
-      auto lca=[&](int u, int v){
-        if(depth[u]<depth[v]) swap(u, v);
-        int dif=depth[u]-depth[v], l=0;
-        while(dif>0){
-          if(dif%2) u=parent[u][l];
-          l++; dif/=2;
-        }
-        if(u==v) return u;
-        for(int k=17; k>=0; k--){
-          if(parent[u][k]!=parent[v][k]) u=parent[u][k], v=parent[v][k];
-        }
-        return parent[u][0];
-      };
     }
+    auto lca=[&](int u, int v){
+      if(depth[u]<depth[v]) swap(u, v);
+      int dif=depth[u]-depth[v], l=0;
+      while(dif>0){
+        if(dif%2) u=parent[u][l];
+        l++; dif/=2;
+      }
+      if(u==v) return u;
+      for(int k=17; k>=0; k--){
+        if(parent[u][k]!=parent[v][k]) u=parent[u][k], v=parent[v][k];
+      }
+      return parent[u][0];
+    };
+  }
 
-    return 0;
+  return 0;
 }
