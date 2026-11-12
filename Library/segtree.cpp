@@ -204,84 +204,80 @@ struct seg2Dtree{
 
 template<class Tr=ll>
 struct PerSegtree{
+  struct Node{
+    int l, r;
+    Tr val;
+    Node(int l, int r, Tr val):l(l), r(r), val(val){}
+  };
   int N;
   Tr iden;
+  vector<Node> tree;
+  vector<int> root_id;
 
   Tr op(Tr a, Tr b){
     return a+b;
   }
 
-  struct Node{
-    Tr val;
-    Node* left;
-    Node* right;
-    Node(Tr val=Tr()): val(val), left(nullptr), right(nullptr){}
-    Node(Tr val, Node* left, Node* right): val(val), left(left), right(right) {}
-  };
-
-  PerSegtree(int n){
-    N=1;
-    iden=0;
-    while(N<n) N<<=1;
-  }
-
-  Node* new_leaf(Tr x){
-    return new Node(x);
-  }
-  Node* new_parent(Node* left, Node* right){
-    return new Node(op(left->val, right->val), left, right);
-  }
-  Node* build(vector<Tr>& a, int l, int r){ //[l, r)
+  int build(int l, int r, const vector<Tr>& a){ //[l, r)
+    int id=tree.size();
+    tree.emplace_back(-1, -1, iden);
     if(r-l==1){
-      if(l<(int)a.size()) return new_leaf(a[l]);
-      else return new_leaf(iden);
+      tree[id].val=a[l];
+      return id;
     }
     int mid=(l+r)/2;
-    Node* left=build(a, l, mid);
-    Node* right=build(a, mid, r);
-    return new_parent(left, right);
-  }
-  Node* build(vector<Tr>& a){
-    N=1;
-    while(N<(int)a.size()) N<<=1;
-    return build(a, 0, N);
+    int left=build(l, mid, a);
+    int right=build(mid, r, a);
+    tree[id].l=left, tree[id].r=right;
+    tree[id].val=op(tree[left].val, tree[right].val);
+    return id;
   }
 
-  Tr query(Node* node, int nl, int nr, int ql, int qr){
-    //nodeが担う区間が[nl, nr), 所望の区間が[ql, qr)
-    if(nr<=ql||qr<=nl) return iden;
-    if(ql<=nl&&nr<=qr) return node->val;
-    int mid=(nl+nr)/2;
-    Tr le=query(node->left, nl, mid, ql, qr);
-    Tr ri=query(node->right, mid, nr, ql, qr);
-    return op(le, ri);
-  }
-  Tr query(Node* root, int l, int r){
-    return query(root, 0, N, l, r);
+  //[l, r)を担当するNode ti、a_pos=xにする
+  int upd(int ti, int l, int r, int pos, Tr x){
+    int nti=tree.size();
+    tree.push_back(tree[ti]);
+    if(r-l==1){
+      tree[nti].val=x;
+      return nti;
+    }
+    int mid=(l+r)/2;
+    int left=tree[nti].l, right=tree[nti].r;
+    if(pos<mid) left=upd(left, l, mid, pos, x);
+    else right=upd(right, mid, r, pos, x);
+    tree[nti].l=left, tree[nti].r=right;
+    tree[nti].val=op(tree[left].val, tree[right].val);
+    return nti;
   }
 
-  Node* update(Node* node, int nl, int nr, int pos, Tr x){
-    if(nr-nl==1){
-      return new_leaf(x);
-    }
-    int mid=(nl+nr)/2;
-    if(pos<mid){
-      Node* newleft=update(node->left, nl, mid, pos, x);
-      Node* newright=node->right;
-      return new_parent(newleft, newright);
-    }
-    else{
-      Node* newleft=node->left;
-      Node* newright=update(node->right, mid, nr, pos, x);
-      return new_parent(newleft, newright);
-    }
+  //[l, r)を担当するNode ti, クエリが[ql, qr)
+  Tr qu(int ti, int l, int r, int ql, int qr){
+    if(r<=ql||qr<=l) return iden;
+    if(ql<=l&&r<=qr) return tree[ti].val;
+    int mid=(l+r)/2;
+    Tr L=qu(tree[ti].l, l, mid, ql, qr);
+    Tr R=qu(tree[ti].r, mid, r, ql, qr);
+    return op(L, R);
   }
-  Node* update(Node* root, int pos, Tr x){
-    return update(root, 0, N, pos, x);
+
+  PerSegtree(const vector<Tr>& a){
+    N=a.size();
+    iden=0;
+    int ri=build(0, N, a);
+    root_id.push_back(ri);
+  }
+
+  void update(int ver, int i, Tr x){ //0-indexed
+    int nti=upd(root_id[ver], 0, N, i, x);
+    root_id.push_back(nti);
   }
   
+  Tr query(int ver, int l, int r){ //[l, r), 0-indexed
+    return qu(root_id[ver], 0, N, l, r);
+  }
 
 };
+
 
 int main() {
     vector<int> arr = {1, 3, 5, 7, 9, 11}; // 元の配列
