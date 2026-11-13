@@ -278,6 +278,65 @@ struct PerSegtree{
 
 };
 
+template<class Tr=ll>
+struct DynamicSegtree{
+  struct Node{
+    int l, r; //左右の子のNode番号 座標ではない
+    Tr val;
+    Node(int l=0, int r=0, Tr val=0):l(l), r(r), val(val){}
+  };
+  ll U; //U>=1
+  int root;
+  Tr iden;
+  vector<Node> tree;
+  Tr op(Tr a, Tr b){
+    return a+b;
+  }
+
+  //[l, r)を担当するNode ti、posにx。
+  //ti=0 → 存在しないNode
+  int upd(int ti, ll l, ll r, ll pos, Tr x){
+    if(ti==0){
+      ti=tree.size();
+      tree.emplace_back(Node(0, 0, iden));
+    }
+    if(r-l==1){
+      tree[ti].val=op(tree[ti].val, x);
+      return ti;
+    }
+    ll mid=(l+r)/2;
+    int left=tree[ti].l, right=tree[ti].r;
+    if(pos<mid) left=upd(left, l, mid, pos, x);
+    else right=upd(right, mid, r, pos, x);
+    tree[ti].l=left, tree[ti].r=right;
+    tree[ti].val=op(tree[left].val, tree[right].val);
+    return ti;
+  }
+  Tr qu(int ti, ll l, ll r, ll ql, ll qr){
+    if(ti==0) return iden;
+    if(qr<=l||r<=ql) return iden;
+    if(ql<=l&&r<=qr) return tree[ti].val;
+    ll mid=(l+r)/2;
+    Tr A=qu(tree[ti].l, l, mid, ql, qr);
+    Tr B=qu(tree[ti].r, mid, r, ql, qr);
+    return op(A, B);
+  }
+
+  DynamicSegtree(ll U):U(U), root(0){ //[0, U)
+    iden=0;
+    tree.emplace_back(Node());
+  }
+
+  void update(ll pos, Tr x){ //o-indexed
+    root=upd(root, 0, U, pos, x);
+  }
+
+  Tr query(ll l, ll r){ //0-indexed, [l, r)
+    return qu(root, 0, U, l, r);
+  }
+
+};
+
 
 int main() {
     vector<int> arr = {1, 3, 5, 7, 9, 11}; // 元の配列
