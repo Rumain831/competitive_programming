@@ -147,6 +147,8 @@ struct SCC{
   int n;
   vector<vector<int>> to, revto, group;
   vector<int> used, order, id;
+  // id[v]  : 頂点vが属する強連結成分の番号
+  // group[i] : 強連結成分iに属する頂点の一覧
 
   SCC(int n=0):n(n), to(n), revto(n), used(n), id(n, -1){}
 
@@ -166,6 +168,7 @@ struct SCC{
     for(auto p:revto[u])if(id[p]==-1) dfs2(p, i);
   }
 
+  // build後にid[v], group[i]が利用可能
   int build(){ //成分数
     for(int i=0; i<n; i++)if(!used[i]) dfs1(i);
     reverse(order.begin(), order.end());
@@ -178,7 +181,7 @@ struct SCC{
     return gi;
   }
 
-
+  // ans[i]：成分iから辺が出ている強連結成分番号の一覧
   vector<vector<int>> contra(){ //build後に呼ぶ
     int c=group.size();
     vector<vector<int>> ans(c);
@@ -195,6 +198,8 @@ struct SCC{
   }
 
   //false：トポロジカル順　true：その逆
+  // 縮約DAGの (トポロジカル順の成分番号列, 隣接リスト) を返す
+  // ※順序列の要素は元の頂点番号ではなく、強連結成分番号
   pair<vector<int>, vector<vector<int>>> topo(bool rev=false){
     int c=group.size();
     auto cont=contra();
